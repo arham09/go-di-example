@@ -10,8 +10,7 @@ import (
 )
 
 func main() {
-	impl := flag.String("type", "manual",
-		"Which type of Dependency Injection to use (manual/dig/wire")
+	impl := flag.String("type", "manual", "Which type of Dependency Injection to use (manual/dig/wire)")
 
 	switch *impl {
 	case "manual":
