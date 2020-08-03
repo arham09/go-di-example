@@ -11,8 +11,8 @@ type Server struct {
 	delivery supplier.Handler
 }
 
-func NewServer(h supplier.Handler) *Server {
-	return &Server{delivery: h}
+func NewServer(h supplier.Handler) Server {
+	return Server{delivery: h}
 }
 
 func (s *Server) Run() {

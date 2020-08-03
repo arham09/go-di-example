@@ -6,8 +6,7 @@ import (
 	"fmt"
 
 	"github.com/arham09/go-di-example/manual"
-	// "github.com/krmahadevan/di/manual"
-	// "github.com/krmahadevan/di/wire"
+	"github.com/arham09/go-di-example/wire"
 )
 
 func main() {
@@ -19,8 +18,8 @@ func main() {
 	switch *impl {
 	case "manual":
 		manual.Main()
-	// case "wire":
-	// 	wire.Main()
+	case "wire":
+		wire.Main()
 	default:
 		panic(errors.New("unknown Dependency Injection model chosen"))
 	}
