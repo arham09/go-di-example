@@ -11,13 +11,14 @@ import (
 	"github.com/arham09/go-di-example/service/supplier/delivery/http"
 	"github.com/arham09/go-di-example/service/supplier/repository"
 	"github.com/arham09/go-di-example/service/supplier/usecase"
+	"time"
 )
 
 // Injectors from wire.go:
 
-func StartingService(conn *sql.DB) service.Server {
+func StartingService(conn *sql.DB, timeout time.Duration) service.Server {
 	supplierRepository := repository.NewPgSupplierRepository(conn)
-	supplierUsecase := usecase.NewSupplierUsecase(supplierRepository)
+	supplierUsecase := usecase.NewSupplierUsecase(supplierRepository, timeout)
 	handler := http.NewSupplierHandler(supplierUsecase)
 	server := service.NewServer(handler)
 	return server

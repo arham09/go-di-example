@@ -2,6 +2,7 @@ package manual
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/arham09/go-di-example/service"
 	"github.com/arham09/go-di-example/service/configs/database"
@@ -24,8 +25,10 @@ func Main() {
 		panic(err)
 	}
 
+	timeoutContext := time.Duration(2) * time.Second
+
 	supplierRepository := sp.NewPgSupplierRepository(db)
-	supplierUsecase := su.NewSupplierUsecase(supplierRepository)
+	supplierUsecase := su.NewSupplierUsecase(supplierRepository, timeoutContext)
 	supplierHandler := sh.NewSupplierHandler(supplierUsecase)
 
 	server := service.NewServer(supplierHandler)

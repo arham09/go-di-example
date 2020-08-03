@@ -2,6 +2,7 @@ package wire
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/arham09/go-di-example/service/configs/database"
 )
@@ -20,7 +21,9 @@ func Main() {
 		panic(err)
 	}
 
-	s := StartingService(db)
+	timeoutContext := time.Duration(2) * time.Second
+
+	s := StartingService(db, timeoutContext)
 
 	s.Run()
 }
