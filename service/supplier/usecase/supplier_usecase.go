@@ -14,10 +14,10 @@ type supplierUsecase struct {
 }
 
 // NewSupplierUsecase will create new an supplierUsecase object representation of supplier.Usecase interface
-func NewSupplierUsecase(s supplier.Repository, timeout time.Duration) supplier.Usecase {
+func NewSupplierUsecase(s supplier.Repository) supplier.Usecase {
 	return &supplierUsecase{
 		supplierRepo:   s,
-		contextTimeout: timeout,
+		contextTimeout: 2,
 	}
 }
 

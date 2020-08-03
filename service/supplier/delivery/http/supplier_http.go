@@ -17,7 +17,7 @@ type SupplierHandler struct {
 	SUsecase supplier.Usecase
 }
 
-func NewSupplierHandler(us supplier.Usecase) *SupplierHandler {
+func NewSupplierHandler(us supplier.Usecase) supplier.Handler {
 	return &SupplierHandler{SUsecase: us}
 }
 
